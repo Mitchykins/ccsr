@@ -14,6 +14,7 @@ for mapFolder in mapDataPaths:
     }
 
     maps = glob.glob(mapFolder + "/**")
+    maps.sort()
 
     for map in maps:
         p = Path(map)
