@@ -3,7 +3,7 @@
   import Nav from "./lib/Nav.svelte";
 </script>
 
-<main>
+<div class="h-screen flex flex-col">
   <Nav />
   <Editor />
-</main>
+</div>

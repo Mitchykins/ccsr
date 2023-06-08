@@ -5,6 +5,8 @@
   };
 </script>
 
-<button class="btn btn-primary" on:click={increment}>
-  count is some {count}
-</button>
+<div class="flex flex-row h-full">
+  <div class="basis-1/4 bg-slate-100 h-full">navigation</div>
+  <div class="basis-1/2 bg-slate-300">Map viewer</div>
+  <div class="basis-1/4 bg-slate-100">properties</div>
+</div>
