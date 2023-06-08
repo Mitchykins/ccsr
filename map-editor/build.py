@@ -1,5 +1,6 @@
 import glob
 from pathlib import Path
+import shutil
 import json
 
 
@@ -27,4 +28,13 @@ for mapFolder in mapDataPaths:
     Path(root).mkdir(parents=True, exist_ok=True)
 
     open(f"{root}map{episode}.json", "w").write(json.dumps(data, indent=4))
+
+    # copy sprites
+    files = [f"ep{episode}.json", f"ep{episode}.png"]
+
+    for f in files:
+        fromPath = Path(f"../port/public/assets/{episode}/{f}")
+        toPath = Path(f"public/maps/{episode}/{f}")
+        shutil.copy(fromPath, toPath)
+
     episode += 1
