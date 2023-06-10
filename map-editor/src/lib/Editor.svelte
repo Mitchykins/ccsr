@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { CCSRMap, CCSRWorld } from "src/map";
   import { onMount } from "svelte";
+  import Info from "./Info.svelte";
 
   const episode = 1;
   let world: CCSRWorld;
@@ -19,29 +20,9 @@
 
 {#if world}
   <div class="flex flex-row h-full">
-    <div class="basis-1/4 overflow-scroll">
-      navigation
-      <div class="flex flex-col">
-        <details class="dropdown mb-32">
-          <summary class="m-1 btn">Select Map</summary>
-          <ul
-            class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
-          >
-            {#each world.maps as map}
-              <li><a on:click={() => (selectedMap = map)}>{map.name}</a></li>
-            {/each}
-          </ul>
-        </details>
-      </div>
-    </div>
-    <div class="basis-1/2 bg-base-200">Map viewer</div>
-    <div class="basis-1/4">
-      {#if selectedMap}
-        Editing map: {selectedMap.name}
-        <code>
-          {selectedMap.data}
-        </code>
-      {/if}
+    <div class="basis-1/2 bg-base-200" />
+    <div class="basis-1/2">
+      <Info />
     </div>
   </div>
 {/if}
