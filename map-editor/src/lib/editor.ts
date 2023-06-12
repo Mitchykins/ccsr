@@ -1,5 +1,6 @@
 import type { CCSRWorld } from "./map";
 import { Viewer } from "./viewer";
+import { Lingo } from "./lingo";
 
 export class Editor {
   public world: CCSRWorld;
@@ -14,6 +15,8 @@ export class Editor {
   public async loadWorld(url: string) {
     const request = await fetch(url);
     this.world = await request.json();
+
+    Lingo.toJSON(this.world.maps[0].data);
   }
 
   public mountViewer(div: HTMLElement) {
