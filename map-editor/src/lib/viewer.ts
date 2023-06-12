@@ -1,11 +1,11 @@
 import * as PIXI from "pixi.js";
 import { Viewport } from "pixi-viewport";
-import { Assets, Spritesheet } from "pixi.js";
+import { Assets, Spritesheet, spritesheetAsset } from "pixi.js";
 
 export class Viewer {
   app: PIXI.Application;
   div: HTMLElement;
-  spriteSheet: PIXI.Spritesheet;
+  sheet: PIXI.Spritesheet;
 
   constructor() {
     this.app = new PIXI.Application({
@@ -16,7 +16,13 @@ export class Viewer {
   }
 
   public async loadTextures(json: string) {
-    this.spriteSheet = await Assets.load(json);
+    this.sheet = await Assets.load(json);
+
+    const sprite = new PIXI.Sprite(
+      this.sheet.textures["summer.instructs.01.png"]
+    );
+
+    this.app.stage.addChild(sprite);
   }
 
   onResize() {
