@@ -26,8 +26,11 @@ export class Viewer {
   }
 
   onResize() {
-    console.log("RESIZE!");
-    this.app.view.width = this.div.clientWidth;
-    this.app.view.height = this.div.clientHeight;
+    console.log("Resizing viewer...");
+    const w = this.div.clientWidth;
+    const h = this.div.clientHeight;
+    this.app.view.width = w;
+    this.app.view.height = h;
+    this.app.renderer.resize(w, h);
   }
 }

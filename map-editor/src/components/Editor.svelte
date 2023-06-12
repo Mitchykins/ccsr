@@ -2,7 +2,9 @@
   import { Editor } from "../lib/editor";
   import { onMount } from "svelte";
   import Info from "./Info.svelte";
+  import { ObservablePoint } from "pixi.js";
 
+  let viewerElement: HTMLDivElement;
   let editor = new Editor();
 
   onMount(async () => {
@@ -12,19 +14,32 @@
     const texJSON = root + `ep${episode}.json`;
     await editor.loadWorld(worldURL);
     await editor.viewer.loadTextures(texJSON);
+
     editor = editor;
   });
 
   function onViewRender(node: any) {
     const div = document.getElementById("viewer");
     editor.mountViewer(div);
+
+    // add resize observer
+    const observer = new ResizeObserver((entries) => {
+      editor.viewer.onResize();
+    });
+
+    observer.observe(node);
   }
 </script>
 
 {#if editor.world}
   <div class="flex flex-row h-full">
     <div class="basis-1/2 bg-base-200">
-      <div use:onViewRender id="viewer" class="h-full">
+      <div
+        bind:this={viewerElement}
+        use:onViewRender
+        id="viewer"
+        class="h-full"
+      >
         <!-- Hello viewer! -->
       </div>
     </div>
