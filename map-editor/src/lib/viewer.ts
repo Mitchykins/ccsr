@@ -10,9 +10,9 @@ export class Viewer {
 
   constructor() {
     this.app = new PIXI.Application({
-      backgroundColor: 0xff00ff,
       width: 100,
       height: 100,
+      backgroundAlpha: 0,
     });
 
     this.viewport = new Viewport({
