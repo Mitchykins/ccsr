@@ -10,9 +10,8 @@
     const root = `maps/${episode}/`;
     const worldURL = root + `map${episode}.json`;
     const texJSON = root + `ep${episode}.json`;
-    const texPNG = root + `ep${episode}.png`;
     await editor.loadWorld(worldURL);
-    await editor.loadTextures(texJSON, texPNG);
+    await editor.viewer.loadTextures(texJSON);
     editor = editor;
   });
 

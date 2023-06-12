@@ -16,12 +16,6 @@ export class Editor {
     this.world = await request.json();
   }
 
-  public async loadTextures(json: string, images: string) {
-    console.log(json);
-    console.log(images);
-    this.textureJSON = await (await fetch(json)).json();
-  }
-
   public mountViewer(div: HTMLElement) {
     div.appendChild(this.viewer.app.view as HTMLCanvasElement);
     this.viewer.div = div;
