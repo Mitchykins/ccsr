@@ -1,3 +1,4 @@
+import { LingoToJSON, tokenize } from "./lingo";
 import type { CCSRWorld } from "./map";
 import { Viewer } from "./viewer";
 
@@ -14,6 +15,9 @@ export class Editor {
   public async loadWorld(url: string) {
     const request = await fetch(url);
     this.world = await request.json();
+    const map = this.world.maps[0];
+    const json = LingoToJSON(map.data);
+    console.log(json);
   }
 
   public mountViewer(div: HTMLElement) {
