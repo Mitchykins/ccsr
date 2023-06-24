@@ -92,18 +92,41 @@ export function LingoToJSON(source: string) {
 }
 
 function lingoArray(tokens: Token[]) {
+  console.log(tokens);
   const array = [];
   let index = 0;
 
   const first = tokens[index];
 
   if (first.type !== TokenType.LEFT_BRACKET) {
-    throw new Error("Failure to parse lingo array: " + first.value);
+    err("Failure to parse lingo array: " + first.value);
   }
 
   return array;
 }
 
-function lingoKeyValue(tokens: Token[]) {
+function lingoObject(tokens: Token[]) {
+  const jsonObject = {};
+
+  const first = tokens[0];
+
+  if (first.type !== TokenType.LEFT_BRACKET) {
+    err("error parsing lingo object: " + first.value);
+  }
+  const next = tokens[1];
+
+  while (next.type !== TokenType.RIGHT_BRACKET) {
+    //
+  }
+
+  return jsonObject;
+}
+
+function err(message: string) {
+  throw new Error(message);
+}
+
+function lingoKeyValue(tokens: Token[]): { key: string; value: any } {
+  return { key: "a", value: "test" };
   //
 }
