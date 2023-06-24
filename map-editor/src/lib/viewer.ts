@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import { Viewport } from "pixi-viewport";
-import { Assets, Spritesheet, spritesheetAsset } from "pixi.js";
+import { Assets, SCALE_MODES, Spritesheet, spritesheetAsset } from "pixi.js";
 
 export class Viewer {
   app: PIXI.Application;
@@ -14,6 +14,8 @@ export class Viewer {
       height: 100,
       backgroundAlpha: 0,
     });
+
+    PIXI.settings.SCALE_MODE = SCALE_MODES.NEAREST;
 
     this.viewport = new Viewport({
       events: this.app.renderer.events,
