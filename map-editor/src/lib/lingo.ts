@@ -131,9 +131,7 @@ function tokenize(source: string) {
       }
     }
     if (!parsed) {
-      throw new Error(
-        "error parsing lingo string at " + source.slice(0, 20) + "..."
-      );
+      err(`Error parsing lingo string at ${source.slice(0, 30)}...}`);
     }
   }
 
@@ -147,9 +145,8 @@ function err(message: string) {
 export function lingoToJSON(lingo: string) {
   const tokens = tokenize(lingo);
   const parser = new LingoParser(tokens);
-  console.log(parser.consume());
-  console.log(parser.currentIndex);
-  console.log(`next: ${parser.peek()}`);
+  const next = parser.peek();
+  console.log(next);
 }
 
 class LingoParser {
@@ -158,7 +155,6 @@ class LingoParser {
 
   constructor(tokens: Token[]) {
     this.tokens = tokens;
-    console.log(this.tokens.length);
   }
 
   public peek() {

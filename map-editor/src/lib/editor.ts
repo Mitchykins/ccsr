@@ -17,7 +17,6 @@ export class Editor {
     this.world = await request.json();
     const map = this.world.maps[0];
     const json = lingoToJSON(map.data);
-    console.log(json);
   }
 
   public mountViewer(div: HTMLElement) {
