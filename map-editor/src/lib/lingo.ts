@@ -144,20 +144,28 @@ function err(message: string) {
   throw new Error(message);
 }
 
+export function lingoToJSON(lingo: string) {
+  const tokens = tokenize(lingo);
+  const parser = new LingoParser(tokens);
+  console.log(parser.consume());
+  console.log(parser.currentIndex);
+  console.log(`next: ${parser.peek()}`);
+}
+
 class LingoParser {
   tokens: Token[];
-  currentIndex: 0;
+  currentIndex = 0;
 
   constructor(tokens: Token[]) {
     this.tokens = tokens;
     console.log(this.tokens.length);
   }
 
-  peek() {
+  public peek() {
     return this.tokens[this.currentIndex + 1];
   }
 
-  consume() {
+  public consume() {
     return this.tokens[this.currentIndex++];
   }
 }

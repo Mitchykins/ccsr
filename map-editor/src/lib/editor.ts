@@ -1,4 +1,4 @@
-import { LingoToJSON, tokenize } from "./lingo";
+import { lingoToJSON } from "./lingo";
 import type { CCSRWorld } from "./map";
 import { Viewer } from "./viewer";
 
@@ -16,7 +16,7 @@ export class Editor {
     const request = await fetch(url);
     this.world = await request.json();
     const map = this.world.maps[0];
-    const json = LingoToJSON(map.data);
+    const json = lingoToJSON(map.data);
     console.log(json);
   }
 
