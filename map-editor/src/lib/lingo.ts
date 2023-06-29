@@ -49,6 +49,61 @@ interface Token {
   value: string;
 }
 
+interface LingoDataType {
+  toJson: () => any;
+}
+
+class LingoNumber implements LingoDataType {
+  value: number;
+
+  constructor(value: number) {
+    this.value = value;
+  }
+
+  toJson(): number {
+    return this.value;
+  }
+}
+
+class LingoString implements LingoDataType {
+  value: string;
+
+  constructor(value: string) {
+    this.value = value;
+  }
+
+  toJson(): string {
+    return this.value;
+  }
+}
+
+class LingoIdentifier extends LingoString {}
+
+class LingoArray implements LingoDataType {
+  values: LingoDataType[] = [];
+
+  toJson(): any[] {
+    return this.values.map((x) => x.toJson());
+  }
+}
+
+interface LingoObjectEntry {
+  key: LingoIdentifier;
+  value: LingoDataType;
+}
+
+class LingoObject implements LingoDataType {
+  values: LingoObjectEntry[] = [];
+
+  toJson(): any {
+    const json = {};
+    for (const entry of this.values) {
+      json[entry.key.toJson()] = entry.value.toJson();
+    }
+    return json;
+  }
+}
+
 /*
     Takes a lingo object and parses it into tokens
 */

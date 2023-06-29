@@ -33,7 +33,7 @@ export class Viewer {
       this.sheet.textures["summer.instructs.01.png"]
     );
 
-    this.viewport.addChild(sprite);
+    // this.viewport.addChild(sprite);
   }
 
   onResize() {
