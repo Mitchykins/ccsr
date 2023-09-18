@@ -1,0 +1,84 @@
+ },
+    "inventory": [
+        {
+            "key": "firstaid",
+            "name": "ファーストエイド",
+            "description": "ファーストエイド, ちゆ を ほしょう!"
+        },
+        {
+            "key": "hammer",
+            "name": "ハンマー",
+            "description": "A hammer with which to bang stuff."
+        },
+        {
+            "key": "sock",
+            "name": "くつした",
+            "description": "この くつした は あし の におい が します"
+        },
+        {
+            "key": "chocbar",
+            "name": "チョコ",
+            "description": "おいしい チョコレート・ バー"
+        },
+        {
+            "key": "ducktape",
+            "name": "ダックテープ",
+            "description": "この テープ は アヒル から つくられて いる, ダックテープ"
+        },
+        {
+            "key": "bandaid",
+            "name": "バンドエイド",
+            "description": "きれいなバンドエイド"
+        },
+        {
+            "key": "bananas",
+            "name": "バナナ",
+            "description": "そうだ、バナナがある"
+        },
+        {
+            "key": "sunscreen",
+            "name": "ひやけ とめ",
+            "description": しがい-せん から からだ を まもる"
+        },
+        {
+            "key": "keys",
+            "name": "バスのかぎ",
+            "description": "カートゥーンネットワークバスのキー"
+        },
+        {
+            "key": "wrench",
+            "name": "レンチ",
+            "description": "ボルト ナット-よう"
+        },
+        {
+            "key": "gum",
+            "name": "ガム",
+            "description": "この ガム は かまれて いる"
+        },
+        {
+            "key": "tape",
+            "name": "スコッチテープ",
+            "description": "スコットランド-せい テープ, スコッチテープ"
+        },
+        {
+            "key": "deedee",
+            "name": "ディディ",
+            "description": "デクスターのあね, ディディ"
+        },
+        {
+            "key": "chicken",
+            "name": "チキン",
+            "description": "ギュウのおにさん, チキン."
+        },
+        {
+            "key": "tennis",
+            "name": "テニスラケット",
+            "description": "テニスをしよう"
+        },
+        {
+            "key": "scuba",
+            "name": "ボート",
+            "description": "A fine seaworthy craft."
+        }
+    ]
+}
